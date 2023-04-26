@@ -1,0 +1,76 @@
+﻿@model List<EventBookingMVCApp.Models.Program>
+@{
+    ViewBag.Title = "EventDisplay";
+}
+
+<h2>Event Display</h2>
+@using (Html.BeginForm("AdminEntry", "Home", FormMethod.Get))
+{
+    <button>Admin login</button>
+
+}
+<br />
+<style>
+    .table-cotent{
+        border: groove;
+        margin: 25px 0;
+        font-size: medium;
+        min-width:400px;
+        border-radius:5px 5px 0 0;
+        overflow: hidden;
+        box-shadow:0 0 20px rgb(0,0,0,0.15);
+        align-content: center;
+    }
+    .table-content thead tr{
+        background-color:black;
+        color:white;
+        text-align:center;
+        font-weight:bold;
+    }
+    .table-content th,
+    .table-content td{
+        padding: 12px 15px;
+        align-content: center;
+        align-items:center;
+        text-align:center;
+    }
+    .table-content tbody tr.active{
+        font-weight:bold;
+        color:black;
+        align-content:center;
+    }
+    .table-content td.active{
+        font-weight:normal;
+    }
+    #1{
+        text-align:left;
+        align-content:flex-start;
+        align-items:flex-start;
+    }
+</style>
+<table class="table-content">
+    <thead>
+        <tr class="active">
+            <th align="center">ID </th>
+            <th align="center">Event Name</th>
+            <th align="center">Tickets</th>
+            <th align="center">Expiry Date</th>
+            <th align="center">Action </th>
+        </tr>
+    </thead>
+    @foreach (var program in Model)
+    {
+        <tbody>
+            <tr class="active">
+                <td id="1">@program.ID</td>
+                <td align="center">@program.Name</td>
+                <td align="center">@program.Quantity</td>
+                <td align="center">@program.Date</td>
+                @using (Html.BeginForm("BuyTicket", "Home", FormMethod.Get))
+                {
+                    <td class="active"><button>Buy</button></td>
+                }
+            </tr>
+        </tbody>
+    }
+</table>

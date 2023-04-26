@@ -1,0 +1,33 @@
+﻿@model EventBookingMVCApp.Models.Program
+@{
+    ViewBag.Title = "EventAdd";
+}
+
+<h2>Event Add</h2>
+<form action="EventAdd" method="post" class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label">Name</label>
+        <input asp-for="Name" class="form-control" name="Name" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Quantity</label>
+        <input asp-for="Quantity" class="form-control" name="Quantity" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Date</label>
+        <input type="datetime" name="Date" value="Date and Time" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        <input type="reset" value="clear" class="btn btn-primary" />
+    </div>
+    <h5>@ViewBag.result</h5>
+</form>
+@using (Html.BeginForm("CSV", "Home", FormMethod.Post))
+{
+    <button>Get Data</button>
+}
+
+
+

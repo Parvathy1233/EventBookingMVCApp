@@ -1,0 +1,19 @@
+﻿@model EventBookingMVCApp.Models.Admin
+@{
+    ViewBag.Title = "AdminEntry";
+}
+
+<form action="EventAdd" method="get" class="form-horizontal">
+    <div class="form-group">
+        <label class="control-label">Username</label>
+        <input asp-for="Username" class="form-control" name="Username" />
+    </div>
+    <div class="form-group">
+        <label class="control-label">Password</label>
+        <input asp-for="Password" class="form-control" name="Password" />
+    </div>
+    @using (Html.BeginForm("EventAdd", "Home", FormMethod.Get))
+    {
+        <button>Login</button>
+    }
+</form>
